@@ -4,12 +4,18 @@ class TweetsController < ApplicationController
 	end
 
 	def create
-		@tweet = Tweet.new(params[tweet_params])
-		@tweet.save
-		render 'new'
+		@tweet = Tweet.new(tweet_params)
+		if @tweet.save
+			flash[:success] = "You have created a tweet"
+			redirect_to new_tweet_path
+		end
 	end
 
 	def tweet_params
 		params.require(:tweet).permit(:content)
+	end
+
+	def index
+		@tweets = Tweet.all
 	end
 end
