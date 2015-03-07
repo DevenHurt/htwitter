@@ -4,7 +4,6 @@ class TweetsController < ApplicationController
 	end
 
 	def create
-		@hello = "hello"
 		@tweet = Tweet.new(params[tweet_params])
 		@tweet.save
 		render 'new'
