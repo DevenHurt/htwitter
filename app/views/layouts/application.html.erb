@@ -20,6 +20,7 @@
       <%= link_to "iLab Twitter", root_path, class: 'navbar-brand' %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
+    <% if user_signed_in? %>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
@@ -29,6 +30,7 @@
         	<%= link_to "News Feed", tweets_path %>
         </li>
       </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li>
         <% if user_signed_in? %>
